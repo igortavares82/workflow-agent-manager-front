@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Home from 'pages/Home'
 import About from 'pages/About'
+import AgentTable from 'components/Agent/Table/Table'
+import AgentsApi from 'api/AgentApi'
 import logo from 'assets/logo.svg'
 import './App.css'
 
@@ -13,16 +15,9 @@ import './App.css'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h2>React Starter Kit</h2>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-          </Switch>
-        </Router>
-      </header>
+      <div className="App-header">
+        <AgentTable data={AgentsApi()} />
+      </div>
     </div>
   )
 }
